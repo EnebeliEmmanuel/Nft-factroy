@@ -1,4 +1,4 @@
-import Card from "@/common/Card";
+import Card from "@/common/card";
 import { orbitron, poppins } from "@/fonts/fonts";
 import Image from "next/image";
 import React from "react";
