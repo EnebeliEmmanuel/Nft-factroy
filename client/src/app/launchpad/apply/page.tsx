@@ -13,6 +13,7 @@ import ArtworkDetailsForm from "@/components/Forms/ArtworkDetails";
 import Minting from "@/components/Forms/Minting";
 import Social from "@/components/Forms/Social";
 import ConfirmSubmit from "@/components/Forms/ConfirmSubmit";
+import Succes from "@/components/Forms/Succes";
 
 // Apply Component
 const Apply: React.FC = () => {
@@ -21,7 +22,7 @@ const Apply: React.FC = () => {
 
   // Function to navigate to the next page
   const handleNextPage = () => {
-    if (currentPage < 8) {
+    if (currentPage < 9) {
       setCurrentPage((prevPage) => prevPage + 1);
     }
   };
@@ -52,15 +53,17 @@ const Apply: React.FC = () => {
       case 7:
         return <Minting />;
       case 8:
-      default:
         return <Social />;
+      case 9:
+      default:
+        return <Succes cancel={toggleConfirmation} />;
     }
   };
 
   return (
     <div className="flex flex-col justify-start h-screen mt-10 mb-10">
       <div className="w-[98%] ">{renderCurrentPage()}</div>
-      {currentPage > 2 && (
+      {currentPage > 2 && currentPage < 9 && (
         <div className="w-[98%] flex justify-end mt-5">
           {isLastPage ? (
             <Button
@@ -79,7 +82,9 @@ const Apply: React.FC = () => {
           )}
         </div>
       )}
-      {confirm && <ConfirmSubmit />}
+      {confirm && (
+        <ConfirmSubmit nextPage={handleNextPage} cancel={toggleConfirmation} />
+      )}
     </div>
   );
 };

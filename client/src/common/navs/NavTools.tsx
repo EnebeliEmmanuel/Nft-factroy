@@ -30,7 +30,7 @@ const NavTools: React.FC<NavToolsProps> = (props) => {
   return (
     <>
       {isMenu ? (
-        <div className="w-[90%] mx-auto flex justify-between">
+        <div className="w-[95%] mx-auto flex justify-between">
           <h2 className={`${orbitron.className} text-2xl`}>{title}</h2>
           <div className="flex flex-row gap-3 items-center">
             <button

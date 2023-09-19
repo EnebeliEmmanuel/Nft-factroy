@@ -4,7 +4,12 @@ import { orbitron } from "@/fonts/fonts";
 import Button from "@/common/Button";
 import Image from "next/image";
 
-const ConfirmSubmit = () => {
+interface GetStartedProps {
+  cancel: () => void;
+  nextPage: () => void;
+}
+
+const ConfirmSubmit: React.FC<GetStartedProps> = ({ cancel, nextPage }) => {
   const [isChecked, setIsChecked] = useState(true);
   const [subcom, setSubcom] = useState(true);
 
@@ -16,6 +21,13 @@ const ConfirmSubmit = () => {
     setSubcom(!subcom);
   };
 
+
+  const submitsucces = () => {
+    nextPage()
+    setSubcom(!subcom);
+  };
+
+
   return (
     <>
       {subcom && (
@@ -24,7 +36,15 @@ const ConfirmSubmit = () => {
             onClick={closeComfimSubmit}
             className="absolute h-[100dvh] left-0 top-0 l w-[100dvw]  bg-[#1B0A1A]  bg-opacity-60"
           />
-          <div className="z-10 w-[95%] py-16 rounded-2xl shadow-lg mx-auto mt-32 h-fit laptop_l:w-[1000px] bg-[#130712] ">
+          <div className="relative z-10 w-[95%] py-16 rounded-2xl shadow-lg mx-auto mt-32 h-fit laptop_l:w-[1000px] bg-[#130712] ">
+            <Image
+              width={15}
+              height={15}
+              onClick={cancel}
+              className="absolute top-6 right-7 cursor-pointer"
+              src="/images/close.svg"
+              alt="checked"
+            />
             <h2
               className={`${orbitron.className} text-center text-primary text-3xl mb-5`}
             >
@@ -41,7 +61,7 @@ const ConfirmSubmit = () => {
             </p>
             <div className="flex justify-center my-10">
               <Button
-                // handleClick={handleNextPage}
+                handleClick={submitsucces}
                 className="bg-gradient-linear px-6 mb-5 py-3"
               >
                 <p> Submit</p>
