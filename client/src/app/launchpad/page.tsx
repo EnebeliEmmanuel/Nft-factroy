@@ -20,7 +20,9 @@ const LaunchPad = () => {
       <div className={Open ? "w-[11rem] laptop:w-[15rem] h-screen" : "relative w-[0rem]  h-screen"}>
        
         {Open ? (
+          <>
           <SideBar menuNav={menuNav} />
+          </>
         ) : (
           <div className="absolute top-11 cursor-pointer" onClick={menuNav}>
             <AiOutlineMenu className="h-6 w-6 items-center" />

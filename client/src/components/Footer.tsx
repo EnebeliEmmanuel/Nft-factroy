@@ -10,7 +10,7 @@ const Footer = () => {
         background:
           "linear-gradient(134deg, rgba(255, 199, 44, 0.16) 0%, rgba(255, 199, 44, 0.00) 100%)",
       }}
-      className=" py-12 sticky top-0 bottom-auto"
+      className="py-12 sticky top-0 bottom-auto"
     >
       <div className="flex justify-between gap-y-14 laptop:flex-row flex-col mx-auto w-[97%] tablet_l:w-[94%] laptop_l:w-[89%]">
         <div className="">
