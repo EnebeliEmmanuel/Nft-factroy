@@ -2,11 +2,12 @@ import React from 'react'
 import { orbitron } from "@/fonts/fonts";
 import { poppins } from "@/fonts/fonts";
 import Button from '@/common/Button';
+import Image from 'next/image';
 
 
 const Overview = () => {
   return (
-    <div className=' mt-14 mb-8'>
+    <div className=' mt-14'>
         <div className="mx-auto w-full">
             <div className=' flex justify-between mb-5'>
                 <h2 className={`${orbitron.className} text-2xl mb-3`}>Overview</h2>
@@ -41,7 +42,7 @@ const Overview = () => {
         
         </div>
 
-        <div className=' flex justify-between mt-12'>
+        <div className=' flex justify-between mt-16'>
                 <h2 className={`${orbitron.className} text-2xl mb-3`}>Analytics</h2>
                 <button
                 className={`${orbitron.className} overview_b text-[#FFC72C] px-4 py-2`}
@@ -55,7 +56,17 @@ const Overview = () => {
                 Export Data
                 </button>
             </div>
+            <div className='mt-8'>
+
+            <Image
+                src="/images/graph.png"
+                alt=""
+                height={1200}
+                width={1000}
+                className=""
+              />
         
+            </div>
         </div>
     </div>
   )

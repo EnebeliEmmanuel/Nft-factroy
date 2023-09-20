@@ -1,4 +1,13 @@
-// Import statements
+/**
+ * Apply Component
+ *
+ * This React component represents an application form with multiple pages and navigation.
+ * Users can navigate through different sections of the form, input data, and submit it.
+ *
+ * @component
+ */
+
+// Import necessary modules and components
 "use client";
 import React, { useState } from "react";
 import Button from "@/common/Button";
@@ -15,27 +24,38 @@ import Social from "@/components/Forms/Social";
 import ConfirmSubmit from "@/components/Forms/ConfirmSubmit";
 import Succes from "@/components/Forms/Succes";
 
-// Apply Component
 const Apply: React.FC = () => {
+  // State variables
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [confirm, setConfirm] = useState<boolean>(false);
 
-  // Function to navigate to the next page
+  /**
+   * Function to navigate to the next page of the application form.
+   * It increments the current page number.
+   */
   const handleNextPage = () => {
     if (currentPage < 9) {
       setCurrentPage((prevPage) => prevPage + 1);
     }
   };
 
-  // Function to toggle confirmation
+  /**
+   * Function to toggle the confirmation state.
+   * It changes the confirmation state from true to false or vice versa.
+   */
   const toggleConfirmation = () => {
     setConfirm(!confirm);
   };
 
-  // Check if it's the last page
+  // Check if the current page is the last page of the form
   const isLastPage = currentPage === 8;
 
-  // Function to render the current page
+  /**
+   * Function to render the current page of the application form based on the current page number.
+   * It returns the appropriate form component for the current page.
+   *
+   * @returns {JSX.Element} - The JSX element representing the current page of the form.
+   */
   const renderCurrentPage = () => {
     switch (currentPage) {
       case 1:
